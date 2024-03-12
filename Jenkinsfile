@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Source') {
             steps {
                 // Properly checkout your Git repository
-                git branch: 'master', credentialsId: 'git', url: 'https://github.com/phaneendrakatakam/Node.js'
+                git branch: 'master', credentialsId: 'git', url: 'https://github.com/phaneendrakatakam/Node.js.git'
             }
         }
         
