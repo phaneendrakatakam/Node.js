@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Source') {
             steps {
                 // Properly checkout your Git repository
-                git branch: 'master', credentialsId: 'docker-hub', url: 'https://github.com/phaneendrakatakam/Node.js'
+                git branch: 'master', credentialsId: 'git', url: 'https://github.com/phaneendrakatakam/Node.js'
             }
         }
         
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Login and push the Docker image to Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', 'docker-hub') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker') {
                         docker.image("${env.IMAGE_NAME}:latest").push()
                     }
                 }
